@@ -1,0 +1,5 @@
+brax==0.0.13
+gym==0.21
+hydra-core
+python-ternary
+wandb

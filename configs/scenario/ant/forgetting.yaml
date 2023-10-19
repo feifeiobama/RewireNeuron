@@ -1,0 +1,10 @@
+name: forgetting
+classname: scenarios.BraxScenario
+domain: ant
+tasks: ["normal","hugefoot","rainfall","moon"]
+repeat_scenario: 2
+n_train_envs: 128
+n_evaluation_envs: 512
+n_steps: 1_000_000
+start_steps: 0
+evaluate_success: False

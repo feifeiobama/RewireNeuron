@@ -1,0 +1,5 @@
+hidden_size: 256
+input_dimension: nil
+output_dimension: nil
+start_steps: ${scenario.start_steps}
+layer_norm: False

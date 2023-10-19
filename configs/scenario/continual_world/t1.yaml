@@ -1,0 +1,14 @@
+name: t1
+classname: scenarios.CWScenario
+domain: continual_world
+tasks: [
+  "push-v1",
+  "window-close-v1",
+  "hammer-v1",
+]
+repeat_scenario: 1
+n_train_envs: 1
+n_evaluation_envs: 1
+n_steps: 1_000_000
+start_steps: 1_000
+evaluate_success: True

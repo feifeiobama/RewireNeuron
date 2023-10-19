@@ -1,0 +1,5 @@
+classname: agents.TwinCritics
+hidden_size: 256
+obs_dimension: nil
+action_dimension: nil
+layer_norm: False

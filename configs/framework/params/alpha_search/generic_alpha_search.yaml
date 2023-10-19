@@ -1,0 +1,10 @@
+# default is only for continual world
+classname: algorithms.AlphaSearch
+params:
+  device: cuda:0
+  n_estimations: 1024
+  n_samples: 4096
+  improvement_threshold: 0.1
+  time_size: ${framework.params.algorithm.params.buffer_time_size}
+  n_rollouts: 32
+  n_validation_steps: 200

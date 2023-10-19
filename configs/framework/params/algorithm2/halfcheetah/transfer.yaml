@@ -1,0 +1,12 @@
+params:
+  optimizer_policy:
+    lr: 3e-4
+
+  optimizer_q:
+    lr: 3e-4
+
+  reward_scaling: 1.
+  policy_update_delay: 4
+  target_update_delay: 2
+
+  target_multiplier: 1.

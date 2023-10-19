@@ -1,0 +1,3 @@
+params:
+  n_rollouts: 8
+  n_validation_steps: 1000

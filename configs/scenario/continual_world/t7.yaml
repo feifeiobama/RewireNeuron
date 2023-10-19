@@ -1,0 +1,14 @@
+name: t7
+classname: scenarios.CWScenario
+domain: continual_world
+tasks: [
+  "stick-pull-v1",
+  "push-back-v1",
+  "push-wall-v1",
+]
+repeat_scenario: 1
+n_train_envs: 1
+n_evaluation_envs: 1
+n_steps: 1_000_000
+start_steps: 1_000
+evaluate_success: True

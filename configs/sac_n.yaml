@@ -1,0 +1,23 @@
+name: sac_n
+seed: 0
+
+defaults: 
+  - logger: wandb
+  - scenario: halfcheetah/forgetting
+  - hydra: hydra
+  - framework/params/algorithm/generic_sac
+  - framework/params/policy_agent/generic_policy
+  - framework/params/critic_agent/generic_critic
+  - framework/params/evaluation/generic_evaluation
+  - optional framework/params/evaluation: ${scenario}
+  - optional framework/params/algorithm: ${scenario}
+  - optional framework/params/policy_agent: ${scenario}
+  - optional framework/params/critic_agent: ${scenario}
+
+framework:
+  classname: frameworks.OneStep
+  seed: ${seed}
+  params:
+    checkpoint: False
+    policy_agent:
+      classname: agents.FromScratchActionAgent

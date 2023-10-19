@@ -1,0 +1,5 @@
+device: cuda:0
+seed: ${seed}
+n_evaluation_envs: ${scenario.n_evaluation_envs}
+n_rollouts: 10
+evaluate_success: ${scenario.evaluate_success}

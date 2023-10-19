@@ -1,0 +1,30 @@
+name: ft_l2
+seed: 0
+
+defaults: 
+  - logger: wandb
+  - scenario: halfcheetah/forgetting
+  - hydra: hydra
+  - framework/params/algorithm/generic_sac
+  - framework/params/policy_agent/generic_policy
+  - framework/params/critic_agent/generic_critic
+  - framework/params/evaluation/generic_evaluation
+  - optional framework/params/evaluation: ${scenario}
+  - optional framework/params/algorithm: ${scenario}
+  - optional framework/params/policy_agent: ft_l2/${scenario}
+  - optional framework/params/critic_agent: ${scenario}
+
+framework:
+  classname: frameworks.TwoSteps
+  seed: ${seed}
+  params:
+    checkpoint: False
+
+    algorithm2:
+      classname: algorithms.L2
+      params:
+        device: cuda:0
+
+    policy_agent:
+      classname: agents.L2ActionAgent
+#      l2_coeff: 1. # 0.01,1.,100,10000

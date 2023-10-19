@@ -1,0 +1,37 @@
+classname: algorithms.PruneAndFinetune
+params:
+  device: cuda:0
+
+  optimizer_policy:
+    classname: torch.optim.Adam
+    lr: 3e-4
+
+  optimizer_q:
+    classname: torch.optim.Adam
+    lr: 3e-4
+
+  optimizer_entropy:
+    classname: torch.optim.Adam
+    lr: 3e-4
+
+  iterations: 100_000
+
+  reward_scaling: 1.
+  policy_update_delay: 2
+  target_update_delay: 1
+  time_limit: 0
+  
+  n_timesteps: 2
+  batch_size: 256
+
+  init_temperature: 2.
+  target_multiplier: 2.
+  
+  clip_grad: 0.
+  inner_epochs: ${scenario.n_train_envs}
+  grad_updates_per_step: 0.5
+  discount_factor: 0.99
+  update_target_tau: 0.005
+  buffer_time_size: 2
+  buffer_size: 1_280_000
+  initial_buffer_size: 12_800

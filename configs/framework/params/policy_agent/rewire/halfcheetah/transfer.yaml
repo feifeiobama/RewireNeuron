@@ -1,0 +1,5 @@
+tau: 0.1
+beta: 0.
+cycle: 4
+divergence: 1e-5
+coeff: 0.1

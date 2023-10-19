@@ -1,0 +1,41 @@
+name: csp
+seed: 0
+
+defaults:
+  - logger: wandb
+  - scenario: halfcheetah/forgetting
+  - hydra: hydra
+  - framework/params/algorithm/generic_sac
+  - framework/params/policy_agent/generic_policy
+  - framework/params/critic_agent/generic_critic
+  - framework/params/evaluation/generic_evaluation
+  - framework/params/alpha_search/generic_alpha_search
+  - optional framework/params/evaluation: ${scenario}
+  - optional framework/params/algorithm: ${scenario}
+  - optional framework/params/policy_agent: csp/${scenario}
+  - optional framework/params/critic_agent: ${scenario}
+  - optional framework/params/alpha_search: ${scenario}
+
+framework:
+  classname: frameworks.Subspace
+  seed: ${seed}
+  params:
+    checkpoint: False
+
+    evaluation:
+      oracle_rollouts: 0
+
+    lr_scaling: 0. #scaling of the lr * nb_anchors
+
+    policy_agent:
+      classname: agents.SubspaceActionAgent
+      n_initial_anchors: 1
+#      dist_type: flat
+      refresh_rate: 1.
+      resampling_q: True
+      resampling_policy: True
+#      repeat_alpha: 100
+
+    critic_agent:
+      classname: agents.AlphaTwinCritics
+      n_anchors:

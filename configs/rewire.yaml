@@ -1,0 +1,38 @@
+name: rewire
+seed: 0
+
+defaults:
+  - logger: wandb
+  - scenario: halfcheetah/forgetting
+  - hydra: hydra
+  - framework/params/algorithm/generic_sac
+  - framework/params/policy_agent/generic_policy
+  - framework/params/critic_agent/generic_critic
+  - framework/params/evaluation/generic_evaluation
+  - optional framework/params/evaluation: ${scenario}
+  - optional framework/params/algorithm: ${scenario}
+  - optional framework/params/policy_agent: rewire/${scenario}
+  - optional framework/params/critic_agent: ${scenario}
+
+framework:
+  classname: frameworks.Rewire
+  seed: ${seed}
+  params:
+    checkpoint: False
+    improvement_threshold: 0.
+
+    algorithm2:
+      classname: algorithms.L2
+      params:
+        device: cuda:0
+
+    policy_agent:
+      classname: agents.RewireActionAgent
+#      tau: 1.
+#      beta: 0.1
+      k: 3
+      tau2: 0.1
+      beta2: 0.
+      rewire_last: 'expand'
+#      divergence: 1e-5
+#      coeff: 0.
