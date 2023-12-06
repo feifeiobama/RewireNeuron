@@ -1,5 +1,5 @@
 # RewireNeuron
-Code for NeurIPS 2023 paper "Rewiring Neurons in Non-Stationary Environments".
+Code for NeurIPS 2023 paper [Rewiring Neurons in Non-Stationary Environments](https://openreview.net/pdf?id=t7ozN4AXd0).
 
 ![](intro.png)
 
